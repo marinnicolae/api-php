@@ -16,7 +16,7 @@ class Property extends Model {
      */
     protected $designation;
     /**
-     * @var Available
+     * @var Available[]
      * @required
      */
     protected $available;
@@ -101,10 +101,6 @@ class Property extends Model {
      */
     protected $accreditations = [];
     /**
-     * @var bool
-     */
-    protected $disabled = false;
-    /**
      * @var Eligibility
      * @required
      */
@@ -118,11 +114,10 @@ class Property extends Model {
     }
 
     /**
-     * @param Available $available
-     *
-     * @return Property
+     * @param array $available
+     * @return $this
      */
-    public function setAvailable(Available $available){
+    public function setAvailable(array $available){
         $this->available = $available;
 
         return $this;
@@ -505,23 +500,6 @@ class Property extends Model {
      */
     public function addFacility($facility){
         $this->facilities[] = $facility;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isDisabled(){
-        return $this->disabled;
-    }
-
-    /**
-     * @param boolean $disabled
-     * @return Property
-     */
-    public function setDisabled($disabled){
-        $this->disabled = $disabled;
 
         return $this;
     }

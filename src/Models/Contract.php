@@ -20,11 +20,6 @@ class Contract extends Model {
 	 * @required
 	 */
 	protected $restrictions = [];
-	/**
-	 * @var Available
-	 * @required
-	 */
-	protected $available;
 
 	/**
 	 * @return Price
@@ -88,24 +83,6 @@ class Contract extends Model {
 	 */
 	public function addRestriction(Restriction $restriction){
 		$this->restrictions[] = $restriction;
-
-		return $this;
-	}
-
-	/**
-	 * @return Available
-	 */
-	public function getAvailable(){
-		return $this->available;
-	}
-
-	/**
-	 * @param Available $available
-	 *
-	 * @return Contract
-	 */
-	public function setAvailable($available){
-		$this->available = $available;
 
 		return $this;
 	}
